@@ -1,0 +1,52 @@
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-9) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-elevated);
+}
+
+.error-state__icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-accent-secondary);
+}
+
+.error-state__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.error-state__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.error-state__message {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  max-width: 40ch;
+}
+
+.error-state__retry {
+  margin-top: var(--space-2);
+  background-color: transparent;
+  border: 1px solid var(--color-accent-secondary);
+  color: var(--color-accent-secondary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-5);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.error-state__retry:hover {
+  background-color: var(--color-accent-secondary);
+  color: var(--color-text-primary);
+}

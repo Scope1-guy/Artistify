@@ -1,0 +1,23 @@
+.search-results__bar {
+  max-width: 520px;
+  margin-bottom: var(--space-6);
+}
+
+.search-results__heading {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.search-results__title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+.search-results__count {
+  color: var(--color-text-faint);
+  font-size: 0.9rem;
+}

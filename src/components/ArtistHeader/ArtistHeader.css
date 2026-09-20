@@ -1,0 +1,98 @@
+.artist-header {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-7);
+  align-items: end;
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.artist-header__image-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lifted);
+}
+
+.artist-header__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-header__genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.artist-header__genre-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent-secondary);
+  border: 1px solid var(--color-accent-secondary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+}
+
+.artist-header__name {
+  font-family: var(--font-display);
+  font-size: 3.25rem;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-5);
+}
+
+.artist-header__stats {
+  display: flex;
+  gap: var(--space-7);
+  margin-bottom: var(--space-5);
+}
+
+.artist-header__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.artist-header__stat-value {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.artist-header__stat-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .artist-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .artist-header__image-wrap {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .artist-header__genres,
+  .artist-header__stats {
+    justify-content: center;
+  }
+
+  .artist-header__name {
+    font-size: 2.25rem;
+  }
+
+  .artist-header__actions {
+    display: flex;
+    justify-content: center;
+  }
+}

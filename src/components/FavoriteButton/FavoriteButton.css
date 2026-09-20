@@ -1,0 +1,35 @@
+.favorite-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-5);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.favorite-button:hover {
+  border-color: var(--color-accent-secondary);
+  color: var(--color-accent-secondary);
+}
+
+.favorite-button__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.favorite-button--active {
+  background-color: var(--color-accent-secondary);
+  border-color: var(--color-accent-secondary);
+  color: var(--color-text-primary);
+}
+
+.favorite-button--active:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-accent-secondary-hover);
+  background-color: var(--color-accent-secondary-hover);
+}

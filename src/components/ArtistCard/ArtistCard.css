@@ -1,0 +1,61 @@
+.artist-card {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.artist-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-strong);
+}
+
+.artist-card__image-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+.artist-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-4);
+  background: linear-gradient(
+    to top,
+    rgba(10, 9, 8, 0.92) 0%,
+    rgba(10, 9, 8, 0.35) 55%,
+    rgba(10, 9, 8, 0) 100%
+  );
+}
+
+.artist-card__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.artist-card__genres {
+  margin-top: var(--space-1);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.artist-card__meta {
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+  border-top: 1px solid var(--color-border);
+}
