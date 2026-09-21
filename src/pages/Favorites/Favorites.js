@@ -4,6 +4,7 @@ import ArtistGrid from "../../components/ArtistGrid/ArtistGrid";
 // import { favoriteArtists } from "../../data/placeholderData";
 import "./Favorites.css";
 import { useEffect, useState } from "react";
+import { getArtistInfo } from "../../services/lastfm";
 
 /*
   This page currently always shows the "has favorites" view using
@@ -27,9 +28,15 @@ function Favorites() {
 
   useEffect(() => {
     const saved = localStorage.getItem("favorites");
-    if (saved) {
-      setFavorites(JSON.parse(saved));
-    }
+    if (!saved) return;
+    const names = JSON.parse(saved);
+
+    Promise.all(names.map((name) => getArtistInfo(name))).then((artists) => {
+      setFavorites(artists);
+    });
+    // if (saved) {
+    //   setFavorites(JSON.parse(saved));
+    // }
   }, []);
   return (
     <div className="page-container page-section">
