@@ -20,12 +20,20 @@ import LoadingState from "../../components/LoadingState/LoadingState";
   then use it to call the Last.fm artist.getInfo endpoint.
 */
 function ArtistDetails() {
-  const isFavorite = false;
+  const [favorites, setFavorites] = useState([]);
+
   const { name } = useParams();
   const [artist, setArtist] = useState(null);
   const [topTracks, setTopTracks] = useState([]);
   const [topAlbums, setTopAlbums] = useState([]);
   const [similarArtists, setSimilarArtist] = useState([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("favorites");
+    if (saved) {
+      setFavorites(JSON.parse(saved));
+    }
+  }, []);
 
   useEffect(() => {
     getArtistInfo(name).then((data) => {
@@ -58,12 +66,27 @@ function ArtistDetails() {
   console.log("similar artist:", similarArtists);
 
   const cleanBio = artist.bio.content.split("<a href")[0];
+
+  const isFavorite = favorites.includes(name);
+
+  const handleToggleFavorite = () => {
+    let updated;
+
+    if (isFavorite) {
+      updated = favorites.filter((fav) => fav !== name);
+    } else {
+      updated = [...favorites, name];
+    }
+
+    setFavorites(updated);
+    localStorage.setItem("favorites", JSON.stringify(updated));
+  };
   return (
     <div className="page-container page-section">
       <ArtistHeader
         artist={artist}
         isFavorite={isFavorite}
-        onToggleFavorite={() => {}}
+        onToggleFavorite={handleToggleFavorite}
       />
 
       <section className="artist-details__section">

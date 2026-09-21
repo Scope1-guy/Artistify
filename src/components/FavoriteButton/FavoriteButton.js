@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "./FavoriteButton.css";
 
 /*
@@ -9,14 +8,6 @@ import "./FavoriteButton.css";
     />
 */
 function FavoriteButton({ isFavorite = false, onClick, label = "Favorite" }) {
-  // const [favorites, setFavorites] = useState([]);
-
-  // useEffect(() => {
-  //   const saved = localStorage.getItem("favorites");
-  //   if (saved) {
-  //     setFavorites(JSON.parse(saved));
-  //   }
-  // }, []);
   return (
     <button
       type="button"

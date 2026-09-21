@@ -1,8 +1,9 @@
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
 import ArtistGrid from "../../components/ArtistGrid/ArtistGrid";
 // import EmptyState from "../../components/EmptyState/EmptyState";
-import { favoriteArtists } from "../../data/placeholderData";
+// import { favoriteArtists } from "../../data/placeholderData";
 import "./Favorites.css";
+import { useEffect, useState } from "react";
 
 /*
   This page currently always shows the "has favorites" view using
@@ -22,6 +23,14 @@ import "./Favorites.css";
   what it looks like without deleting the working example above it.
 */
 function Favorites() {
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("favorites");
+    if (saved) {
+      setFavorites(JSON.parse(saved));
+    }
+  }, []);
   return (
     <div className="page-container page-section">
       <SectionHeader
@@ -29,7 +38,7 @@ function Favorites() {
         subtitle="Artists you've saved for quick access later."
       />
 
-      <ArtistGrid artists={favoriteArtists} />
+      <ArtistGrid artists={favorites} />
 
       {/*
         <EmptyState
