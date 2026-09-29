@@ -1,13 +1,19 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { logOut } from "../../services/firebase";
 
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/search", label: "Search" },
   { to: "/favorites", label: "Favorites" },
+  // { to: "/signup", label: "Sign Up / Log In" },
 ];
 
 function Navbar() {
+  const { currentUser } = useContext(AuthContext);
+
   return (
     <header className="navbar">
       <div className="navbar__inner page-container">
@@ -30,6 +36,17 @@ function Navbar() {
             </NavLink>
           ))}
         </nav>
+
+        {currentUser ? (
+          <div>
+            <span className="navbar__user">{currentUser.email}</span>
+            <button onClick={logOut}>Log Out</button>
+          </div>
+        ) : (
+          <NavLink to="/signup" className="navbar__link">
+            Sign Up / Log In
+          </NavLink>
+        )}
       </div>
     </header>
   );
