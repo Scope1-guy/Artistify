@@ -22,11 +22,6 @@ function Profile() {
         <p>Empty</p>
       </div>
 
-      <div>
-        <h4>Favorites Artist</h4>
-        <p>Empty</p>
-      </div>
-
       <button className="profile_logout" onClick={logOut}>
         Log Out
       </button>
