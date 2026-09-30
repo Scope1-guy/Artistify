@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -35,6 +36,13 @@ function SignUp() {
           placeholder="Email"
           required
         />
+        {/* <input
+          type="text"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+          placeholder="Username"
+          required
+        /> */}
         <input
           type="password"
           value={password}

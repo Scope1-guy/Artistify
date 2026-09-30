@@ -39,8 +39,11 @@ function Navbar() {
 
         {currentUser ? (
           <div>
-            <span className="navbar__user">{currentUser.email}</span>
-            <button onClick={logOut}>Log Out</button>
+            <NavLink to="/profile">
+              <span className="navbar__user">
+                {currentUser.email || "email not set"}
+              </span>
+            </NavLink>
           </div>
         ) : (
           <NavLink to="/signup" className="navbar__link">

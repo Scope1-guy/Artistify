@@ -10,6 +10,8 @@ import SignUp from "./pages/SignUp/SignUp";
 import Login from "./pages/Login/Login";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Profile from "./pages/Profile/Profile";
+
 function App() {
   return (
     <AuthProvider>
@@ -42,6 +44,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Favorites />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
                   </ProtectedRoute>
                 }
               />
