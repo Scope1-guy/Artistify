@@ -9,6 +9,7 @@ function Login() {
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,13 +27,23 @@ function Login() {
 
   const handleGoogle = () => {
     setError("");
+    setGoogleLoading(true);
+
     signInWithGoogle()
       .then(() => {
         const destination = location.state?.from?.pathname || "/";
         navigate(destination);
       })
       .catch((err) => {
-        setError(err.message);
+        if (
+          err.code !== "auth/cancelled-popup-request" &&
+          err.code !== "auth/popup-closed-by-user"
+        ) {
+          setError(err.message);
+        }
+      })
+      .finally(() => {
+        setGoogleLoading(false);
       });
   };
 
@@ -80,7 +91,12 @@ function Login() {
           <span>or</span>
         </div>
 
-        <button type="button" className="auth__google" onClick={handleGoogle}>
+        <button
+          type="button"
+          className="auth__google"
+          onClick={handleGoogle}
+          disabled={googleLoading}
+        >
           <svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true">
             <path
               fill="#EA4335"
