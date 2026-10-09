@@ -3,7 +3,9 @@ import ArtistGrid from "../../components/ArtistGrid/ArtistGrid";
 // import EmptyState from "../../components/EmptyState/EmptyState";
 // import { favoriteArtists } from "../../data/placeholderData";
 import "./Favorites.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { getFavorites } from "../../services/firebase";
 import { getArtistInfo } from "../../services/lastfm";
 
 /*
@@ -25,6 +27,7 @@ import { getArtistInfo } from "../../services/lastfm";
 */
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const saved = localStorage.getItem("favorites");
@@ -38,6 +41,16 @@ function Favorites() {
     //   setFavorites(JSON.parse(saved));
     // }
   }, []);
+
+  useEffect(() => {
+    if (!currentUser) return;
+
+    getFavorites(currentUser.uid)
+      .then((names) => Promise.all(names.map((name) => getArtistInfo(name))))
+      .then((artists) => {
+        setFavorites(artists);
+      });
+  }, [currentUser]);
   return (
     <div className="page-container page-section">
       <SectionHeader
