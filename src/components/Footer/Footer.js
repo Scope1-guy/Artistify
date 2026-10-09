@@ -6,7 +6,7 @@ function Footer() {
     <footer className="footer">
       <div className="page-container footer__inner">
         <div className="footer__brand">
-          <span className="footer__brand-name">Artist Explorer</span>
+          <span className="footer__brand-name">Artistify</span>
           <p className="footer__tagline">
             Search, discover and keep track of the artists you love.
           </p>
@@ -38,8 +38,8 @@ function Footer() {
 
       <div className="page-container footer__bottom">
         <p>
-          &copy; {new Date().getFullYear()} Artist Explorer. Built by Samuel
-          Eniola Olalekan.
+          &copy; {new Date().getFullYear()} Artistify. Built by Samuel Eniola
+          Olalekan.
         </p>
       </div>
     </footer>
