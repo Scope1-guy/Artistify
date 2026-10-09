@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import logo from "../../assets/logo.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -16,7 +17,7 @@ function Navbar() {
     <header className="navbar">
       <div className="navbar__inner page-container">
         <NavLink to="/" className="navbar__brand">
-          <span className="navbar__brand-mark">A</span>
+          <img src={logo} alt="Artistify Logo" className="navbar__logo" />
           <span className="navbar__brand-name">Artistify</span>
         </NavLink>
 

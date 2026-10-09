@@ -19,8 +19,13 @@
   align-items: center;
   gap: var(--space-3);
 }
+.navbar__logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
 
-.navbar__brand-mark {
+/* .navbar__brand-mark {
   display: grid;
   place-items: center;
   width: 36px;
@@ -31,7 +36,7 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.9rem;
-}
+} */
 
 .navbar__brand-name {
   font-family: var(--font-display);
@@ -67,6 +72,9 @@
 @media (max-width: 640px) {
   .navbar__inner {
     height: 64px;
+  }
+  .navbar__logo {
+    height: 32px;
   }
 
   .navbar__brand-name {
