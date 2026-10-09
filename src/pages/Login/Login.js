@@ -11,6 +11,7 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setError("");
     signIn(email, password)
       .then((result) => {
         console.log("Success:", result);
@@ -23,28 +24,50 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        required
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        required
-      />
-      {error && <p>{error.message}</p>}
-      <button type="submit">Log In</button>
+    <div className="page-container page-section auth">
+      <div className="auth__card">
+        <h1 className="auth__title">Welcome back</h1>
+        <p className="auth__subtitle">Log in to continue to Artistify.</p>
 
-      <p>
-        New User?. <NavLink to="/signup">Create an account</NavLink>
-      </p>
-    </form>
+        {error && <p className="auth__error">{error}</p>}
+
+        <form className="auth__form" onSubmit={handleSubmit}>
+          <label className="auth__label" htmlFor="login-email">
+            Email
+          </label>
+          <input
+            id="login-email"
+            className="auth__input"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
+            required
+          />
+
+          <label className="auth__label" htmlFor="login-password">
+            Password
+          </label>
+          <input
+            id="login-password"
+            className="auth__input"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Your password"
+            required
+          />
+
+          <button className="auth__submit" type="submit">
+            Log In
+          </button>
+        </form>
+
+        <p>
+          New User?. <NavLink to="/signup">Create an account</NavLink>
+        </p>
+      </div>
+    </div>
   );
 }
 

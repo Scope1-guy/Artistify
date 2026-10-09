@@ -2,13 +2,11 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { logOut } from "../../services/firebase";
 
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/search", label: "Search" },
   { to: "/favorites", label: "Favorites" },
-  // { to: "/signup", label: "Sign Up / Log In" },
 ];
 
 function Navbar() {

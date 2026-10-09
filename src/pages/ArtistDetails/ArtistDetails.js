@@ -11,9 +11,10 @@ import {
 } from "../../services/lastfm";
 import "./ArtistDetails.css";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import LoadingState from "../../components/LoadingState/LoadingState";
-
+import { AuthContext } from "../../context/AuthContext";
+import { getFavorites, saveFavorites } from "../../services/firebase";
 /*
   The route for this page is /artist/:id (see App.js).
   Read the id with useParams() once you add the real data fetching,
@@ -27,13 +28,25 @@ function ArtistDetails() {
   const [topTracks, setTopTracks] = useState([]);
   const [topAlbums, setTopAlbums] = useState([]);
   const [similarArtists, setSimilarArtist] = useState([]);
+  const { currentUser } = useContext(AuthContext);
 
+  // Local storage
+  console.log();
+  // useEffect(() => {
+  //   const saved = localStorage.getItem("favorites");
+  //   if (saved) {
+  //     setFavorites(JSON.parse(saved));
+  //   }
+  // }, []);
+
+  // Firebase
   useEffect(() => {
-    const saved = localStorage.getItem("favorites");
-    if (saved) {
-      setFavorites(JSON.parse(saved));
-    }
-  }, []);
+    if (!currentUser) return;
+
+    getFavorites(currentUser.uid).then((saved) => {
+      setFavorites(saved);
+    });
+  }, [currentUser]);
 
   useEffect(() => {
     getArtistInfo(name).then((data) => {
@@ -69,6 +82,19 @@ function ArtistDetails() {
 
   const isFavorite = favorites.includes(name);
 
+  // const handleToggleFavorite = () => {
+  //   let updated;
+
+  //   if (isFavorite) {
+  //     updated = favorites.filter((fav) => fav !== name);
+  //   } else {
+  //     updated = [...favorites, name];
+  //   }
+
+  //   setFavorites(updated);
+  //   localStorage.setItem("favorites", JSON.stringify(updated));
+  // };
+
   const handleToggleFavorite = () => {
     let updated;
 
@@ -79,8 +105,9 @@ function ArtistDetails() {
     }
 
     setFavorites(updated);
-    localStorage.setItem("favorites", JSON.stringify(updated));
+    saveFavorites(currentUser.uid, updated);
   };
+
   return (
     <div className="page-container page-section">
       <ArtistHeader
