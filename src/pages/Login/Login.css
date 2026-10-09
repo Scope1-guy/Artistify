@@ -1,0 +1,133 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-8);
+}
+
+.auth_card {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-1g);
+  padding: var(--space-6);
+}
+
+.auth__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.auth__subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-5);
+}
+
+.auth__error {
+  background-color: rgba(214, 69, 69, 0.12);
+  border: 1px solid var(--color-accent-secondary);
+  color: var(--color-accent-secondary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-4);
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.auth__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-top: var(--space-3);
+}
+
+.auth__input {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+}
+
+.auth__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.auth__submit {
+  margin-top: var(--space-5);
+  background-color: var(--color-accent);
+  color: var(--color-accent-ink);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.15s ease;
+}
+
+.auth__submit:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.auth__switch {
+  margin-top: var(--space-5);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.auth__switch a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .auth {
+    padding-top: var(--space-7);
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .auth {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+
+  .auth__card {
+    max-width: 100%;
+    padding: var(--space-5) var(--space-4);
+    border-radius: var(--radius-md);
+  }
+
+  .auth__title {
+    font-size: 1.4rem;
+  }
+
+  .auth__subtitle {
+    font-size: 0.85rem;
+  }
+
+  /* 16px stops iPhones from zooming in when an input is tapped */
+  .auth__input {
+    font-size: 1rem;
+    padding: var(--space-4);
+  }
+
+  /* Bigger tap target */
+  .auth__submit {
+    padding: var(--space-4);
+    font-size: 1rem;
+  }
+}

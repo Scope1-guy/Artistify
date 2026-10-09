@@ -36,15 +36,24 @@ function Navbar() {
         </nav>
 
         {currentUser ? (
-          <div>
-            <NavLink to="/profile">
-              <span className="navbar__user">
-                {currentUser.email || "email not set"}
-              </span>
-            </NavLink>
-          </div>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              isActive
+                ? "navbar__profile navbar__profile--active"
+                : "navbar__profile"
+            }
+            aria-label="Go to your profile"
+          >
+            <span className="navbar__avatar">
+              {currentUser.email[0].toUpperCase()}
+            </span>
+            <span className="navbar__username">
+              {currentUser.email.split("@")[0]}
+            </span>
+          </NavLink>
         ) : (
-          <NavLink to="/signup" className="navbar__link">
+          <NavLink to="/signup" className="navbar__signup">
             Sign Up / Log In
           </NavLink>
         )}
