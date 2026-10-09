@@ -4,6 +4,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
@@ -47,4 +49,9 @@ export async function getFavorites(uid) {
   }
 
   return [];
+}
+
+export function signInWithGoogle() {
+  const provider = new GoogleAuthProvider();
+  return signInWithPopup(auth, provider);
 }

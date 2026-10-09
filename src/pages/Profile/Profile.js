@@ -14,8 +14,17 @@ function Profile() {
         <button>Edit Details</button>
       </div>
 
-      <div className="profile_avatar">{initial}</div>
-      <h1 className="profile_email">{currentUser.email}</h1>
+      <div className="profile_avatar">
+        {currentUser.photoURL ? (
+          <img src={currentUser.photoURL} alt="" referrerPolicy="no-referrer" />
+        ) : (
+          currentUser.email[0].toUpperCase()
+        )}
+      </div>
+      <h1 className="profile__name">
+        {currentUser.displayName || currentUser.email.split("@")[0]}
+      </h1>
+      <p className="profile__email">{currentUser.email}</p>
 
       <div>
         <h4>Favorites Genre</h4>

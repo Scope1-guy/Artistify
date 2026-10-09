@@ -25,6 +25,15 @@
   display: block;
 }
 
+.navbar__avatar {
+  overflow: hidden;
+}
+.navbar__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* .navbar__brand-mark {
   display: grid;
   place-items: center;

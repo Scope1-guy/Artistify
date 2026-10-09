@@ -47,10 +47,18 @@ function Navbar() {
             aria-label="Go to your profile"
           >
             <span className="navbar__avatar">
-              {currentUser.email[0].toUpperCase()}
+              {currentUser.photoURL ? (
+                <img
+                  src={currentUser.photoURL}
+                  alt=""
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                currentUser.email[0].toUpperCase()
+              )}
             </span>
             <span className="navbar__username">
-              {currentUser.email.split("@")[0]}
+              {currentUser.displayName || currentUser.email.split("@")[0]}
             </span>
           </NavLink>
         ) : (
