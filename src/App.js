@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Profile from "./pages/Profile/Profile";
+import MobileTabBar from "./components/MobileTabBar/MobileTabBar";
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <MobileTabBar />
         </div>
       </BrowserRouter>
     </AuthProvider>

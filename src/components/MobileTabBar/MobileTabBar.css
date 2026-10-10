@@ -1,0 +1,47 @@
+.tabbar,
+.tabbar-spacer {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tabbar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: rgba(18, 16, 14, 0.92);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--color-border);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .tabbar-spacer {
+    display: block;
+    height: calc(64px + env(safe-area-inset-bottom));
+  }
+
+  .tabbar__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 64px;
+    color: var(--color-text-faint);
+    font-size: 0.7rem;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .tabbar__item svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .tabbar__item--active {
+    color: var(--color-accent);
+  }
+}
