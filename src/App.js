@@ -12,6 +12,7 @@ import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Profile from "./pages/Profile/Profile";
 import MobileTabBar from "./components/MobileTabBar/MobileTabBar";
+import PublicOnlyRoute from "./components/PublicOnlyRoute/PublicOnlyRoute";
 
 function App() {
   return (
@@ -22,8 +23,22 @@ function App() {
           <main className="app__main">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/signin" element={<Login />} />
+              <Route
+                path="/signup"
+                element={
+                  <PublicOnlyRoute>
+                    <SignUp />
+                  </PublicOnlyRoute>
+                }
+              />
+              <Route
+                path="/signin"
+                element={
+                  <PublicOnlyRoute>
+                    <Login />
+                  </PublicOnlyRoute>
+                }
+              />
               <Route
                 path="/search"
                 element={

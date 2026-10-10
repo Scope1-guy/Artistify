@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Login.css";
+import "../../components/AuthStyles/AuthStyles.css";
 import { signIn, signInWithGoogle } from "../../services/firebase";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 

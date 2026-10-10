@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { signUp, signInWithGoogle } from "../../services/firebase";
-import "./SignUp.css";
+import "../../components/AuthStyles/AuthStyles.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
@@ -117,11 +117,11 @@ function SignUp() {
           </svg>
           Continue with Google
         </button>
-      </div>
 
-      <p>
-        Already has an account. <NavLink to="/signin">Log In</NavLink>
-      </p>
+        <p>
+          Already has an account. <NavLink to="/signin">Log In</NavLink>
+        </p>
+      </div>
     </div>
   );
 }
