@@ -57,9 +57,9 @@ function Navbar() {
                 currentUser.email[0].toUpperCase()
               )}
             </span>
-            <span className="navbar__username">
+            {/* <span className="navbar__username">
               {currentUser.displayName || currentUser.email.split("@")[0]}
-            </span>
+            </span> */}
           </NavLink>
         ) : (
           <NavLink to="/signup" className="navbar__signup">
