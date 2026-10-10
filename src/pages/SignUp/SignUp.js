@@ -119,7 +119,7 @@ function SignUp() {
         </button>
       </div>
 
-      <p className="auth__switch">
+      <p>
         Already has an account. <NavLink to="/signin">Log In</NavLink>
       </p>
     </div>
