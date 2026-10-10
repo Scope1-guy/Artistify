@@ -13,11 +13,13 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Profile from "./pages/Profile/Profile";
 import MobileTabBar from "./components/MobileTabBar/MobileTabBar";
 import PublicOnlyRoute from "./components/PublicOnlyRoute/PublicOnlyRoute";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+<ScrollToTop />
         <div className="app">
           <Navbar />
           <main className="app__main">
